@@ -1,20 +1,24 @@
 # Getting started
 
-### NPM
+## NPM
 
 ```bash
 $ npm i ajaxinate
 ```
 
 ```javascript
-import 'ajaxinate';
+import {Ajaxinate} from 'ajaxinate';
 
-const endlessScroll = new Ajaxinate();
-
-endlessScroll();
+new Ajaxinate({
+  container: '#AjaxinateContainer',
+  pagination: '#AjaxinatePagination',
+  loadingText: 'Loading more...',
+});
 ```
 
-### Manual installation
+## Manual installation
+
+**IMPORTANT! If you are using Ajaxinate without a package manager, use** [**the v2 branch**](https://github.com/Elkfox/Ajaxinate/tree/v2) **↗**
 
 1. Add ajaxinate.min.js to the assets folder of your shopify theme, or add it to your vendor files if you are using Slate or a similar method.
 2. Add the ajaxinate.min.js script src tag before the closing body tag, or defer its loading:
@@ -30,7 +34,7 @@ endlessScroll();
    {% code title="collection.liquid" %}
    ```python
    {% paginate collection.products by 3 %}
-       <div id="AjaxinateLoop" >
+       <div id="AjaxinateContainer" >
          {% for product in collection.products %}
            {% include 'product-grid-item' %}
          {% endfor %}
